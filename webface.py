@@ -36,6 +36,10 @@ def info():
 def abc():
     return render_template("abc.html", slova=slova)
 
+@app.route("/krtek/")
+def krtek():
+    return render_template("krtek.html", slova=slova)
+
 
 @app.route("/text/")
 def text():

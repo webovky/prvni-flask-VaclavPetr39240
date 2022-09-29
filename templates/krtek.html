@@ -3,13 +3,14 @@
 
 {% block obsah %}
 
-<h1>Krteček</h1>
+<h1>Krtečkova hromádka hlíny</h1>
 
-    <h1>Flask <a href="{{ url_for('index') }}">Teď je to teprve pokus!</a></h1>
+<p><img src="{{ url_for('static', filename='02458997.jpeg')}}" /></p>
+    <h1>Flask <a href="{{ url_for('index') }}">Krteček se vloudil!</a></h1>
     <ul>
-        {% for s in slova  %}
-            <li>Je to {{s}}.</li>
-        {% endfor %}
+        <h2> Má tam předsíň.</h2>
+        <h2> Má tam kuchyňku.</h2>
+        <h2> Má tam ložnici s pelechem.</h2>
     </ul>
     
 
