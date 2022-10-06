@@ -36,9 +36,20 @@ def info():
 def abc():
     return render_template("abc.html", slova=slova)
 
-@app.route("/krtek/")
+@app.route("/krtek/", methods = ['GET', 'POST'])
 def krtek():
-    return render_template("krtek.html", slova=slova)
+    hmotnost = request.args.get('hmotnost')
+    vyska = request.args.get('vyska')
+    
+
+    if hmotnost and vyska != None:
+        bmi = int(hmotnost) / ((int(vyska) / 100) ** 2)
+    else:
+        bmi = 0
+    
+    
+
+    return render_template("krtek.html", bmi = bmi)
 
 
 @app.route("/text/")

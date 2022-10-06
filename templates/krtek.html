@@ -3,13 +3,15 @@
 
 {% block obsah %}
 
-<h1>Formulář</h1>
+<h1>Formulář BMI</h1>
 
-<form action="" method="POST">
-    <input type="text" name="q">
-    <input type="password" name="p">
-    <input type="submit" value="Odeslat">
+<form action="" method="GET">
+    <p>Hmotnost:<br> <input type="number" name="hmotnost" placeholder="prázdné pole!">kg </p>
+    <p>Výška:<br> <input type="number" name="vyska" placeholder="prázdné pole!">cm </p>
+    <p><input type="submit" value="Vyhodnotit!"> </p>
 </form>
+
+<p>BMI = {{bmi}} </p>
 
 <h1>Krtečkova hromádka hlíny</h1>
 
