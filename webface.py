@@ -43,9 +43,12 @@ def krtek():
     
 
     if hmotnost and vyska != None:
-        bmi = int(hmotnost) / ((int(vyska) / 100) ** 2)
+        try:
+            bmi = int(hmotnost) / ((int(vyska) / 100) ** 2)
+        except ZeroDivisionError:
+            bmi = None
     else:
-        bmi = 0
+        bmi = None
     
     
 

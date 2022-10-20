@@ -6,12 +6,31 @@
 <h1>Formulář BMI</h1>
 
 <form action="" method="GET">
-    <p>Hmotnost:<br> <input type="number" name="hmotnost" placeholder="prázdné pole!">kg </p>
-    <p>Výška:<br> <input type="number" name="vyska" placeholder="prázdné pole!">cm </p>
+    <p>Hmotnost:<br> <input type="number" name="hmotnost" placeholder="prázdné pole!" value="{{request.args.get('hmotnost')}}">kg </p>
+    <p>Výška:<br> <input type="number" name="vyska" placeholder="prázdné pole!" value="{{request.args.get('vyska')}}">cm </p>
     <p><input type="submit" value="Vyhodnotit!"> </p>
 </form>
 
-<p>BMI = {{bmi}} </p>
+{% if bmi != None %}
+<p>BMI == {{bmi}}</p>
+
+{% if bmi < 18.5 %}
+<p>0 až 18,5 je podváha</p>
+{% elif bmi < 25 %}
+<p>18,5 až 25 je normální váha</p>
+{% elif bmi < 30 %}
+<p>25 až 30 je nadváha</p>
+{% elif bmi < 35 %}
+<p>30 až 35 je mírná obezita</p>
+{% elif bmi < 40 %}
+<p>35 až 40 je obezita</p>
+{% elif bmi > 40 %}
+<p>hodnota větší než 40 je morbidní obezita</p>
+
+{% else %}
+<p style="color:red">"Je třeba zadat dvě nenulová čísla."</p>
+{% endif %}
+{% endif %}
 
 <h1>Krtečkova hromádka hlíny</h1>
 
