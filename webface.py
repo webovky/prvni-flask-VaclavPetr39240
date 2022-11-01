@@ -36,6 +36,24 @@ def info():
 def abc():
     return render_template("abc.html", slova=slova)
 
+@app.route("/krtek/", methods = ['GET', 'POST'])
+def krtek():
+    hmotnost = request.args.get('hmotnost')
+    vyska = request.args.get('vyska')
+    
+
+    if hmotnost and vyska != None:
+        try:
+            bmi = int(hmotnost) / ((int(vyska) / 100) ** 2)
+        except ZeroDivisionError:
+            bmi = None
+    else:
+        bmi = None
+    
+    
+
+    return render_template("krtek.html", bmi = bmi)
+
 
 @app.route("/text/")
 def text():
